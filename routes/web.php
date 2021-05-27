@@ -20,9 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/schedules', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('schedules');
+Route::get('/schedules', [ScheduleController::class, 'index']
+)->middleware(['auth'])->name('schedules');
 
 
 Route::group(['middleware' => ['auth']], function () {

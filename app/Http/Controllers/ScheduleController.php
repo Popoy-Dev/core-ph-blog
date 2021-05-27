@@ -7,6 +7,11 @@ use App\Models\Schedule;
 
 class ScheduleController extends Controller
 {
+    public function index () {
+
+        $data = Schedule::select()->where('is_deleted', 0)->get();
+        return view('dashboard')->with('data', $data);
+    }
     public function addSchedule () {
         $this->validate(request(), [
             'title' => 'required',

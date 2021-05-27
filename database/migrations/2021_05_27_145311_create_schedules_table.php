@@ -18,6 +18,7 @@ class CreateSchedulesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->dateTime('date_time');
+            $table->string('is_deleted')->default(0);
             $table->timestamps();
         });
     }

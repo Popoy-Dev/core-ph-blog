@@ -10,6 +10,7 @@ class Schedule extends Model
     protected $fillable = [
         'title',
         'description',
-        'date_time'
+        'date_time',
+        'is_deleted'
       ];
 }
