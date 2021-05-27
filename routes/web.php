@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ScheduleController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/schedules', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('schedules');
 
 
 Route::group(['middleware' => ['auth']], function () {
-    
+    Route::post('add-schedule', [ScheduleController::class, 'addSchedule']);
 });
 
 
